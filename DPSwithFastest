@@ -6,7 +6,7 @@ using namespace std;
  
 pair <int, int> startPunkt;
 pair <int, int> exitPunkt;
-vector<vector<char>> v2li
+vector< vector<char> > v2li
 {
     {'#','#','#','#','#','#','#','S','#'},
     {'#','X','X','X','X','X','X','X','#'},
@@ -62,7 +62,6 @@ bool kasSees(pair<int,int> punkt){
 vector< pair<int,int> > kusOli;
 vector< pair<int,int> > kiiremTee;
 int kiiremTeePikkus = 99999;
-vector< vector< pair<int,int> > > nodeRoad;
 
 void printKiirem(){
     for(int i=0; kiiremTee.size()>i; i++){
@@ -148,11 +147,20 @@ void nextSamm(pair<int,int> punkt){
     }
 }
  
+void n2itaTeed(){
+	cout << endl;
+	for(int i=0; kiiremTeePikkus>i; i++){
+		v2li[kiiremTee[i].first][kiiremTee[i].second] = '*';
+	}
+	print();
+} 
+
 int main(){
     if(findStart() & findExit()){
         print();
         nextSamm(startPunkt);
         printKiirem();
+		n2itaTeed();
     }
     else{ cout << "Labyrinti ei saa lahendada" << endl; }
 }
